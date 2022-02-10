@@ -12,6 +12,7 @@ const AddUser = (props) => {
   const submitHandler = (e) => {
     e.preventDefault();
     const newUser = {
+      id: Date.now().toString(),
       username: enteredUsername,
       age: enteredAge,
     }
@@ -19,7 +20,7 @@ const AddUser = (props) => {
     setEnteredUsername('');
     setEnteredAge('');
   }
-  
+
   return (
     <Card className={classes.input}>
       <form onSubmit={submitHandler}>
