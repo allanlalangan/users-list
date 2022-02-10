@@ -1,12 +1,16 @@
 import React from 'react';
-import AddUser from './Users/AddUser';
+import Wrapper from './components/helpers/Wrapper';
+import AddUser from './components/Users/AddUser';
+import UsersList from './components/Users/UsersList';
+import users from './components/Users/data/users';
 
 
-function App() {
+const App = () => {
   return (
-    <div>
+    <Wrapper>
       <AddUser />
-    </div>
+      <UsersList users={users}/>
+    </Wrapper>
   )
 }
 
