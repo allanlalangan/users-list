@@ -1,17 +1,17 @@
 import React from 'react'
-import User from './User';
+import UserItem from './UserItem';
 import Card from '../UI/Card';
 import "./UsersList.module.css";
 
 const UsersList = (props) => {
   return (
-    <Card>
+    <ul>
       {props.users.map(user => {
         return (
-          <User {...user}/>
+          <UserItem key={user.id} {...user}/>
         )
       })}
-    </Card>
+    </ul>
   )
 }
 

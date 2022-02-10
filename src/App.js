@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Wrapper from './components/helpers/Wrapper';
 import AddUser from './components/Users/AddUser';
 import UsersList from './components/Users/UsersList';
-import users from './components/Users/data/users';
+import usersData from './components/Users/data/users';
 
 
 const App = () => {
+  const [users, setUsers] = useState(usersData);
+  const addUserHandler = (newUser) => {
+    console.log(newUser);
+    console.log('new user added');
+  }
+
   return (
     <Wrapper>
-      <AddUser />
+      <AddUser onAddUser={addUserHandler}/>
       <UsersList users={users}/>
     </Wrapper>
   )
