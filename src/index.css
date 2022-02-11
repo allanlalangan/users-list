@@ -1,12 +1,18 @@
+:root {
+  --prim-color: hsl(205, 50%, 20%);
+  --sec-color: hsl(205, 50%, 80%);
+}
+
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-  background-color: #1f1f1f;
+  background-color: var(--prim-color);
   font-family: sans-serif;
 }
 
 body {
-  margin: 0;
 }

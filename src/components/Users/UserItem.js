@@ -4,7 +4,7 @@ import classes from './UserItem.module.css';
 
 const UserItem = (props) => {
   return (
-    <li>
+    <li className={classes.li}>
       <Card className={classes.user}>
         <p>{props.name}</p>
         <p>{props.age}</p>
