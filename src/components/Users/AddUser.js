@@ -8,16 +8,20 @@ import ErrorModal from '../UI/ErrorModal';
 const AddUser = (props) => {
   const [enteredUsername, setEnteredUsername] = useState('');
   const [enteredAge, setEnteredAge] = useState('');
-  const [isInputValid, setIsInputValid] = useState(true)
+  const [isInputValid, setIsInputValid] = useState(true);
 
   const submitHandler = (e) => {
     e.preventDefault();
     if (enteredUsername.trim().length === 0 || enteredAge.trim().length === 0) {
       setIsInputValid(false);
+      console.log(isInputValid);
+      console.log(enteredUsername, enteredAge);
       return
     }
     if (+enteredAge < 1) {
       setIsInputValid(false);
+      console.log(isInputValid);
+      console.log(enteredUsername, enteredAge);
       return
     }
     
@@ -26,23 +30,22 @@ const AddUser = (props) => {
       username: enteredUsername,
       age: enteredAge,
     }
-
     props.onAddUser(newUser);
     setEnteredUsername('');
     setEnteredAge('');
   }
 
   const usernameInputChangeHandler = (e) => {
-    if (enteredUsername.trim().length > 0) {
+    setEnteredUsername(e.target.value);
+    if (enteredUsername.length > 0) {
       setIsInputValid(true);
     }
-    setEnteredUsername(e.target.value);
   };
   const ageInputChangeHandler = (e) => {
-    if (enteredAge.trim().length > 0) {
+    setEnteredAge(e.target.value);
+    if (enteredAge > 0) {
       setIsInputValid(true);
     }
-    setEnteredAge(e.target.value);
   };
 
   return (
@@ -57,7 +60,7 @@ const AddUser = (props) => {
         />
         <label htmlFor="age">Age (years)</label>
         <input 
-          type="age"
+          type="number"
           id="age"
           value={enteredAge}
           onChange={ageInputChangeHandler}
