@@ -17,10 +17,19 @@
   display: block;
   width: 100%;
   border: 1px solid #ccc;
+  padding: 1rem;
   margin-bottom: 1rem;
 }
 
 .input input:focus {
   outline: none;
   border-color: #4f005f;
+}
+
+.input.invalid input {
+  border: solid 1px rgba(255, 0, 0, 0.5);
+}
+
+.input.invalid label {
+  color: red;
 }

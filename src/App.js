@@ -4,19 +4,18 @@ import AddUser from './components/Users/AddUser';
 import UsersList from './components/Users/UsersList';
 import usersData from './components/Users/data/users';
 
-
 const App = () => {
-  const [users, setUsers] = useState(usersData);
+  const [usersList, setUsers] = useState(usersData);
   const addUserHandler = (newUser) => {
-    setUsers((prevState) => {
-      return [newUser, ...prevState];
+    setUsers((prevUsers) => {
+      return [newUser, ...prevUsers];
     });
   }
 
   return (
     <Wrapper>
       <AddUser onAddUser={addUserHandler}/>
-      <UsersList users={users}/>
+      <UsersList users={usersList}/>
     </Wrapper>
   )
 }
