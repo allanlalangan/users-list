@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import formControls from './AddUser.module.css';
+import classes from './AddUser.module.css';
 import Card from '../UI/Card';
 import Button from '../UI/Button';
 import ErrorModal from '../UI/ErrorModal';
@@ -47,7 +47,7 @@ const AddUser = (props) => {
 
   return (
     <form onSubmit={submitHandler}>
-      <Card className={`${formControls.input} ${!isInputValid ? formControls.invalid : ''}`}>
+      <Card className={`${classes.input} ${!isInputValid ? classes.invalid : ''}`}>
         <label htmlFor="username">Username</label>
         <input 
           type="text"
