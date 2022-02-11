@@ -8,8 +8,9 @@ import usersData from './components/Users/data/users';
 const App = () => {
   const [users, setUsers] = useState(usersData);
   const addUserHandler = (newUser) => {
-    console.log(newUser);
-    console.log('new user added');
+    setUsers((prevState) => {
+      return [newUser, ...prevState];
+    });
   }
 
   return (

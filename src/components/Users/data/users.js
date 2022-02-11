@@ -1,17 +1,17 @@
 const users = [
   {
     id: '1',
-    name: 'frank',
+    username: 'frank',
     age: 30,
   },
   {
     id: '2',
-    name: 'rico',
+    username: 'rico',
     age: 28,
   },
   {
     id: '3',
-    name: 'ivan',
+    username: 'ivan',
     age: 23,
   },
 ];

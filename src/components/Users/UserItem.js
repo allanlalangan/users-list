@@ -6,7 +6,7 @@ const UserItem = (props) => {
   return (
     <li className={classes.li}>
       <Card className={classes.user}>
-        <p>{props.name}</p>
+        <p>{props.username}</p>
         <p>{props.age}</p>
       </Card>
     </li>
