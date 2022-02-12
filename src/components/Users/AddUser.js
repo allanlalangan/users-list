@@ -9,19 +9,24 @@ const AddUser = (props) => {
   const [enteredUsername, setEnteredUsername] = useState('');
   const [enteredAge, setEnteredAge] = useState('');
   const [isInputValid, setIsInputValid] = useState(true);
+  const [error, setError] = useState();
 
   const submitHandler = (e) => {
     e.preventDefault();
     if (enteredUsername.trim().length === 0 || enteredAge.trim().length === 0) {
       setIsInputValid(false);
-      console.log(isInputValid);
-      console.log(enteredUsername, enteredAge);
+      setError({
+        title: 'Invalid input',
+        message: 'Please enter a valid name and age',
+      });
       return
     }
     if (+enteredAge < 1) {
       setIsInputValid(false);
-      console.log(isInputValid);
-      console.log(enteredUsername, enteredAge);
+      setError({
+        title: 'Invalid age',
+        message: 'Please enter a valid age (>0)',
+      });
       return
     }
     
@@ -33,6 +38,10 @@ const AddUser = (props) => {
     props.onAddUser(newUser);
     setEnteredUsername('');
     setEnteredAge('');
+  }
+
+  const closeModal = () => {
+    setError(null);
   }
 
   const usernameInputChangeHandler = (e) => {
@@ -50,6 +59,7 @@ const AddUser = (props) => {
 
   return (
     <form onSubmit={submitHandler}>
+      {error && <ErrorModal title={error.title} message={error.message} onConfirm={closeModal}/>}
       <Card className={`${classes.input} ${!isInputValid ? classes.invalid : ''}`}>
         <label htmlFor="username">Username</label>
         <input 
